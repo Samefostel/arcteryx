@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Arc'teryx - Products and Adventure</title>
+    <link rel="stylesheet" href="style.css">
+    <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
+    <style>
+       
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        
+        section {
+            padding: 80px 20px;
+            text-align: center;
+            transition: background-color 0.5s ease;
+        }
+
+        .hero {
+            background: url('https://example.com/hero-image.jpg') no-repeat center center/cover;
+            padding: 150px 20px;
+        }
+
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #111;
+            color: #777;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="https://i.pinimg.com/736x/48/6c/a6/486ca6b572487fdc31eab7891d59d190.jpg" alt="Gorp Core Logo" style="height: 80px;"/>
+            <p>Продукти та пригоди для сучасного мандрівника</p>
+        </div>
+        <div class="box">
+            <div class="dropdown">Меню
+                <span class="left-icon"></span>
+                <span class="right-icon"></span>
+                <div class="items">
+                    <a href="#home" style="--i:1;"><span></span>Головна</a>
+                    <a href="#about" style="--i:2;"><span></span>Про нас</a>
+                    <a href="#gear" style="--i:3;"><span></span>Наше обладнання</a>
+                    <a href="#adventure" style="--i:4;"><span></span>Пригода</a>
+                    <a href="#contact" style="--i:5;"><span></span>Контакт</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <h2>Ласкаво просимо до Arc'teryx</h2>
+        <p>Досліджуйте найкраще обладнання для ваших пригод на відкритому повітрі</p>
+        <a href="https://arcteryx.com/us/en" class="cta-btn">Arc'teryx</a>
+    </section>
+
+    <section id="about" class="about">
+        <h2>Про нас</h2>
+        <p>Gorp Core - це бренд, заснований на спільноті, який надає високоякісне обладнання для активного відпочинку, розроблене для комфорту та довговічності. Ми віримо в те, щоб зробити кожну пригоду незабутньою, забезпечуючи мандрівників правильними інструментами.</p>
+    </section>
+
+    <section id="gear" class="gear">
+        <h2>Наше обладнання</h2>
+        <div class="gear-items">
+            <div class="item">
+                <h3>Окуляри</h3>
+                <p>Міцні, водонепроникні рюкзаки для будь-якого рельєфу.</p>
+            </div>
+            <div class="item">
+                <h3>Одяг</h3>
+                <p>Досліджуйте з комфортом з нашими міцними та універсальними черевиками для походів.</p>
+            </div>
+            <div class="item">
+                <h3>Кросівки</h3>
+                <p>Стильний та функціональний одяг, розроблений для активного відпочинку.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="adventure" class="adventure">
+        <h2>Історії пригод</h2>
+        <p>Читайте історії від справжніх мандрівників, які довіряють Gorp Core на своїх подорожах. Надихайтеся та діліться своїми пригодами.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Зв'яжіться з нами</h2>
+        <p>Є питання або хочете приєднатися до нашої спільноти? Зв'яжіться з нами через нашу контактну форму або підписуйтесь на нас у соціальних мережах! </p><a href="https://arcteryx.com/us/en/help/contact" class="cta-btn">support</a>
+    </section>
+
+    <section id="map">
+        <h2>Мапа</h2>
+        <div id="google-map" style="height: 400px; width: 100%;"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Arc'teryx. Всі права захищені.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            const northVancouver = { lat: 49.3132, lng: -123.0733 };
+            const map = new google.maps.Map(document.getElementById("google-map"), {
+                zoom: 12,
+                center: northVancouver,
+            });
+            const marker = new google.maps.Marker({
+                position: northVancouver,
+                map: map,
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dropdown menu toggle
+        const dropdown = document.querySelector('.dropdown');
+        dropdown.addEventListener('click', () => {
+            dropdown.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
