@@ -6,13 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Arc'teryx - Products and Adventure</title>
     <link rel="stylesheet" href="style.css">
-    <script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
     <style>
-       
         html {
             scroll-behavior: smooth;
         }
-        
         
         body {
             font-family: 'Poppins', sans-serif;
@@ -39,7 +36,6 @@
             background-color: #111;
             color: #777;
         }
-        
         
     </style>
 </head>
@@ -103,30 +99,12 @@
         <p>Є питання або хочете приєднатися до нашої спільноти? Зв'яжіться з нами через нашу контактну форму або підписуйтесь на нас у соціальних мережах! </p><a href="https://arcteryx.com/us/en/help/contact" class="cta-btn">support</a>
     </section>
 
-    <section id="map">
-        <h2>Мапа</h2>
-        <div id="google-map" style="height: 400px; width: 100%;"></div>
-    </section>
-
     <footer>
         <p>&copy; 2024 Arc'teryx. Всі права захищені.</p>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        // Initialize and add the map
-        function initMap() {
-            const northVancouver = { lat: 49.3132, lng: -123.0733 };
-            const map = new google.maps.Map(document.getElementById("google-map"), {
-                zoom: 12,
-                center: northVancouver,
-            });
-            const marker = new google.maps.Marker({
-                position: northVancouver,
-                map: map,
-            });
-        }
-
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
